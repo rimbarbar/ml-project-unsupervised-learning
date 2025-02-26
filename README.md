@@ -1,17 +1,56 @@
 # machine_learning_project-unsupervised-learning
 
-## Project Outcomes
-- Unsupervised Learning: perform unsupervised learning techniques on a wholesale data dataset. The project involves four main parts: exploratory data analysis and pre-processing, KMeans clustering, hierarchical clustering, and PCA.
-### Duration:
-Approximately 1 hour and 40 minutes
-### Project Description:
-In this project, we will apply unsupervised learning techniques to a real-world data set and use data visualization tools to communicate the insights gained from the analysis.
+## Project Overview
+This project applies unsupervised learning techniques to segment wholesale customers based on purchasing behavior. Using clustering methods such as K-Means and Hierarchical Clustering, the goal is to uncover distinct customer groups that businesses can use for targeted marketing strategies and inventory management.
 
-The data set for this project is the "Wholesale Data" dataset containing information about various products sold by a grocery store.
-The project will involve the following tasks:
+## Dataset
+The dataset used in this project is the Wholesale Dataset, which contains features such as annual spending in different product categories (e.g., Fresh, Milk, Grocery, Frozen, Detergents, Paper, and Delicassen).
 
--	Exploratory data analysis and pre-processing: We will import and clean the data sets, analyze and visualize the relationships between the different variables, handle missing values and outliers, and perform feature engineering as needed.
--	Unsupervised learning: We will use the Wholesale Data dataset to perform k-means clustering, hierarchical clustering, and principal component analysis (PCA) to identify patterns and group similar data points together. We will determine the optimal number of clusters and communicate the insights gained through data visualization.
+## Project Workflow
 
-The ultimate goal of the project is to gain insights from the data sets and communicate these insights to stakeholders using appropriate visualizations and metrics to make informed decisions based on the business questions asked."
+### 1. Data Understanding and Exploratory Data Analysis
+- Conducted statistical analysis and visualized distributions.
+- Identified outliers using a boxplot.
+- Observed correlations between features using a heatmap.
+- **Key Insights:**
+  - Strong correlation between Grocery and Detergents_Paper indicates potential redundancy in features.
+  - Some features have skewed distributions requiring transformation or normalization.
+
+### 2. Data Cleaning and Preprocessing
+- No missing values were present in the dataset.
+- Standardized the data using StandardScaler to ensure equal weighting for clustering.
+- Applied PCA to visualize variance across dimensions.
+- **Insights:**
+  - PCA revealed that the first two components explain most of the variance, confirming that dimensionality reduction was useful.
+
+### 3. Clustering Methods and Evaluation
+
+#### **K-Means Clustering**
+- Used the elbow method and silhouette score to determine the optimal number of clusters.
+- Chose K=3 as it balances within-cluster variance and interpretability.
+- Why not a higher K? While increasing K reduces inertia, the silhouette score indicates that K=3 provides a reasonable cluster separation without over-segmentation.
+
+#### **Hierarchical Clustering**
+- Compared Agglomerative Clustering to K-Means.
+- Dendrogram suggested a different number of clusters.
+- **Why the difference?** Hierarchical clustering is more sensitive to data distribution, and it doesn’t assume cluster shapes, which explains the variation.
+
+### 4. Results and Business Insights
+
+- **Segment Characteristics:**
+  - Cluster 1: High spenders across all categories (likely hotels/restaurants).
+  - Cluster 2: Moderate spenders, mostly on groceries and detergents (small retailers).
+  - Cluster 3: Low spenders, focused on fresh produce (cafes, small food businesses).
+- **Practical Applications:**
+  - Businesses can target high spenders with premium offers.
+  - Low spenders may require cost-effective product bundles and specialized discounts. 
+  - Understanding segments allows for better marketing strategies.
+
+## Future Improvements
+- Experiment with different distance metrics for hierarchical clustering.
+- Use DBSCAN for density-based clustering.
+- Fine-tune hyperparameters for improved cluster separation.
+
+## Conclusion
+This project successfully identified meaningful customer segments using unsupervised learning techniques. The insights can aid businesses in decision-making related to marketing and product inventory optimization.
 
